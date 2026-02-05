@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Force)",
+      "Bash(php artisan make:migration:*)",
+      "Bash(php artisan make:model:*)"
+    ]
+  }
+}
