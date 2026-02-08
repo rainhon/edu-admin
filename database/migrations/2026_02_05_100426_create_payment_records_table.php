@@ -31,8 +31,6 @@ return new class extends Migration
             $table->index('invoice_id');
             $table->index('student_id');
             $table->index('transaction_id');
-            $table->index('payment_time');
-            $table->index('status');
         });
     }
 

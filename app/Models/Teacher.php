@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Teacher extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,14 +22,8 @@ class Teacher extends Model
         'user_id',
         'admin_user_id',
         'name',
-        'gender',
         'phone',
         'email',
-        'subject',
-        'qualification',
-        'hire_date',
-        'notes',
-        'status',
     ];
 
     /**
@@ -37,8 +32,7 @@ class Teacher extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'hire_date' => 'date',
-        'status' => 'string',
+        //
     ];
 
     /**

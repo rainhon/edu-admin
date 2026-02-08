@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,18 +21,8 @@ class Student extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'gender',
-        'birth_date',
         'phone',
-        'parent_phone',
         'email',
-        'address',
-        'school',
-        'grade',
-        'emergency_contact',
-        'emergency_phone',
-        'notes',
-        'status',
     ];
 
     /**
@@ -40,8 +31,7 @@ class Student extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'birth_date' => 'date',
-        'status' => 'string',
+        //
     ];
 
     /**

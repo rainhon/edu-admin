@@ -27,9 +27,6 @@ return new class extends Migration
 
             $table->index('course_id');
             $table->index('student_id');
-            $table->index('status');
-            $table->index('billing_month');
-            $table->index('due_date');
         });
     }
 

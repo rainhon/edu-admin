@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
+use App\Admin\Controllers\StudentController;
+use App\Admin\Controllers\TeacherController;
 
 Admin::routes();
 
@@ -12,5 +14,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-
+    $router->resource('teachers', TeacherController::class);
+    $router->resource('students', StudentController::class);
 });
