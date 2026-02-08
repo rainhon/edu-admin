@@ -101,15 +101,15 @@ class TeacherController extends AdminController
                     return $form->response()->error('邮箱已被使用');
                 }
 
-                // 检查姓名是否已存在于 admin_users 表
-                if (Administrator::where('username', $name)->exists()) {
-                    return $form->response()->error('该姓名已被使用作为用户名');
+                // 检查邮箱是否已存在于 admin_users 表（作为用户名）
+                if (Administrator::where('username', $email)->exists()) {
+                    return $form->response()->error('该邮箱已被用于后台登录账号');
                 }
 
                 DB::transaction(function () use ($form, $name, $email, $password) {
-                    // 1. 创建 admin_users
+                    // 1. 创建 admin_users（使用邮箱作为用户名）
                     $adminUser = Administrator::create([
-                        'username' => $name,
+                        'username' => $email,
                         'password' => Hash::make($password),
                         'name' => $name,
                     ]);
