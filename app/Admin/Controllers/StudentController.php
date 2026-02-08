@@ -70,7 +70,7 @@ class StudentController extends AdminController
 
         $form->text('name', __('姓名'))->required();
         $form->mobile('phone', __('手机号'));
-        $form->email('email', __('邮箱'))->required()->rules('unique:users,email,NULL,NULL,id');
+        $form->email('email', __('邮箱'))->required();
         $form->hidden('user_id', 'user_id');
 
         // 创建模式：显示密码字段
